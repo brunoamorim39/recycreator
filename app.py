@@ -34,6 +34,7 @@ class ExtrusionConfig(db.Model):
     def __repr__(self):
         return '<ExtrusionConfig %r>' %self.material
 
+# URL routing to the dashboard where no material information is displayed
 @app.route('/')
 def dashboard():
     materials = Material.query.all()
@@ -45,6 +46,7 @@ def dashboard():
     return render_template('index.html',
                            materials=materialArray)
 
+# URL routing to page relevant to the material selected, displays temperature data and feed rate for extrusion
 @app.route('/<material>')
 def pullMaterial(material):
     materials = Material.query.all()
