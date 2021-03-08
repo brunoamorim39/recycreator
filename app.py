@@ -42,10 +42,25 @@ def dashboard():
     for material in materials:
         materialArray.append(material.name)
 
-    extrusionSettings = ExtrusionConfig.query.filter_by(material_id=1).first()
+    return render_template('index.html', materials=materialArray)
+
+@app.route('/<material>')
+def pullMaterial(material):
+    materials = Material.query.all()
+
+    materialArray = []
+    for each in materials:
+        materialArray.append(each.name)
+
+    chosenMaterial = Material.query.filter_by(name=material).first()
+
+    selectedMaterial = chosenMaterial.name
+
+    extrusionSettings = ExtrusionConfig.query.filter_by(material_id=chosenMaterial.id).first()
 
     minTemp = extrusionSettings.minTemp
     maxTemp = extrusionSettings.maxTemp
     targetTemp = extrusionSettings.targetTemp
+    feedRate = extrusionSettings.feedRate    
 
-    return render_template('index.html', materials=materialArray, minTemp=minTemp, maxTemp=maxTemp, targetTemp=targetTemp)
+    return render_template('index.html', materials=materialArray, selectedMaterial=selectedMaterial, minTemp=minTemp, maxTemp=maxTemp, targetTemp=targetTemp, feedRate=feedRate)

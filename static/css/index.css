@@ -1,0 +1,9 @@
+tr, th {
+    border: 1px solid black;
+    margin-top: 12px;
+    margin-left: 24px;
+    padding: 4px;
+}
+select {
+    margin: 12px;
+}
