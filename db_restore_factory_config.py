@@ -1,6 +1,6 @@
 from app import db, Material, FactoryConfig, UserConfig
 
-def interactionMenu():
+def factoryReset():
     matSelect = input('Which material settings do you want to restore? (PLA / ABS / PETG) ')
 
     if matSelect == 'PLA' or matSelect == 'ABS' or matSelect == 'PETG':
@@ -32,11 +32,11 @@ def interactionMenu():
         else:
             # Prompts user to make a valid choice
             print('Please select (y)es or (n)o to confirm selection')
-            interactionMenu()
+            factoryReset()
 
     else:
         print('Please select the appropriate material to restore')
-        interactionMenu()
+        factoryReset()
 
 if __name__ == '__main__':
-    interactionMenu()
+    factoryReset()

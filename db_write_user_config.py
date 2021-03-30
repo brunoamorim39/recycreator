@@ -32,6 +32,8 @@ def userOverride():
             # Stores user modified values into database
             targetRow.feedRate = userFeedRate
             targetRow.targetTemp = userTargetTemp
+            targetRow.minTemp = int(float(userTargetTemp) * 0.95)
+            targetRow.maxTemp = int(float(userTargetTemp) * 1.05)
             db.session.commit()
             print('Changes saved successfully!')
 
