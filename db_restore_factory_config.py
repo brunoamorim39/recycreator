@@ -1,7 +1,7 @@
 from app import db, Material, FactoryConfig, UserConfig
 
 def interactionMenu():
-    matSelect = input('Which material settings do you want to restore? [PLA / ABS / PETG] ')
+    matSelect = input('Which material settings do you want to restore? (PLA / ABS / PETG) ')
 
     if matSelect == 'PLA' or matSelect == 'ABS' or matSelect == 'PETG':
         confirm = input('Are you sure you want to restore default settings? (y/n) ')
@@ -23,13 +23,15 @@ def interactionMenu():
             targetRow.targetTemp = defaultSettings.targetTemp
 
             db.session.commit()
-            print('Default settings restored')
+            print('Default settings restored successfully')
             
-        elif confirm == 'n':
+        elif confirm == 'n' or confirm == 'N':
+            # Does not store user modified values into database
             print('Default settings will not be restored')
 
         else:
-            print('Please select y or n to confirm selection')
+            # Prompts user to make a valid choice
+            print('Please select (y)es or (n)o to confirm selection')
             interactionMenu()
 
     else:
