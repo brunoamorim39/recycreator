@@ -1,6 +1,8 @@
-from app import db, Material, FactoryConfig, UserConfig
+from __init__ import db
+from models import Material, FactoryConfig, UserConfig
 
 def factoryReset():
+    print()
     matSelect = input('Which material settings do you want to restore? (PLA / ABS / PETG) ')
 
     if matSelect == 'PLA' or matSelect == 'ABS' or matSelect == 'PETG':
@@ -24,10 +26,12 @@ def factoryReset():
 
             db.session.commit()
             print('Default settings restored successfully')
+            print()
             
         elif confirm == 'n' or confirm == 'N':
             # Does not store user modified values into database
             print('Default settings will not be restored')
+            print()
 
         else:
             # Prompts user to make a valid choice

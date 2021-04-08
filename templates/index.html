@@ -7,8 +7,8 @@
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
     </head>
     <body>
-        <form method="POST" action="/">
-            <h3>Select desired material:</h3>
+        <form class="material-data" method="POST" action="/">
+            <h3 class="display-header">Select desired material:</h3>
             <select id="material-select">
                 <option selected value="default">-- Material --</option>
                 {% for material in materials %}
@@ -16,7 +16,7 @@
                 {% endfor %}
             </select>
             <div id="display-info">
-                <h4>Displaying Data for: {{ selectedMaterial }}</h4>
+                <h4 class="display-header">Displaying Data for: {{ selectedMaterial }}</h4>
                 <table>
                     <tr>
                         <th>Feed<br>Rate</th>

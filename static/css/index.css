@@ -1,9 +1,35 @@
+* {
+    margin: 0;
+}
+
 tr, th {
     border: 1px solid black;
     margin-top: 12px;
     margin-left: 24px;
     padding: 4px;
 }
+
 select {
     margin: 12px;
+}
+
+.display-header {
+    margin-top: 3.5vh;
+}
+
+.material-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+#material-select {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#display-info {
+    margin-left: auto;
+    margin-right: auto;
 }

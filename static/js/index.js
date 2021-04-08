@@ -10,6 +10,8 @@ materialSelect.addEventListener('change', function() {
         document.location.href = '/PLA'
     } else if (materialSelect.value === 'ABS') {
         document.location.href = '/ABS'
+    } else if (materialSelect.value === 'PETG') {
+        document.location.href = '/PETG'
     } else {
         document.location.href = '/'
     }

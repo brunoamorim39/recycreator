@@ -1,4 +1,5 @@
-from app import db, Material, FactoryConfig, UserConfig
+from __init__ import db
+from models import Material, FactoryConfig, UserConfig
 
 materials = []
 materialIDs = []
@@ -39,7 +40,9 @@ def firstRun(materials, materialIDs, feedRates, minTemps, maxTemps, recTemps):
             maxTemps[i],
             recTemps[i]
             )
+    print()
     print('Database successfully initialized')
+    print()
 
 # Handles writing and commitment of values to the specified table
 def writeValues(table, id, feed, minT, maxT, recT):

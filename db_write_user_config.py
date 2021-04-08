@@ -1,6 +1,8 @@
-from app import db, Material, UserConfig
+from __init__ import db
+from models import Material, UserConfig
 
 def userOverride():
+    print()
     selectedMaterial = input('Choose the material to change settings for: (PLA / ABS / PETG) ' )
 
     if selectedMaterial == 'PLA' or selectedMaterial == 'ABS' or selectedMaterial == 'PETG':
@@ -36,10 +38,12 @@ def userOverride():
             targetRow.maxTemp = int(float(userTargetTemp) * 1.05)
             db.session.commit()
             print('Changes saved successfully!')
+            print()
 
         elif saveChanges == 'n' or saveChanges == 'N':
             # Does not store user modified values into database
             print('Changes will not be saved')
+            print()
 
         else:
             # Prompts user to make a valid choice
